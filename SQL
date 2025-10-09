@@ -1,76 +1,83 @@
-	create database my_db;
+create database my_db;
 use my_db;
+
 create table users(
-    maKH varchar(20)PRIMARY KEY,
+    maKH varchar(20) primary key,
     HoTen varchar(255),
     email varchar(255),
     pass varchar(10),
     SDT char(10),
     DiaChi varchar(255),
-    VaiTro enum('admin','user')DEFAULT 'user'
-    );
+    VaiTro enum('admin','user') default 'user'
+);
+
 create table Cart(
-        MaCart char(20) PRIMARY key,
+    MaCart char(20) primary key,
     userid varchar(20),
     ngaytao date
-        );
-        
+);
+
 alter table Cart
-add constraint fk_c_u FOREIGN key (userid) REFERENCES users(maKH);
+add constraint fk_c_u foreign key (userid) references users(maKH);
+
 create table SanPham(
-    MaSP char(10) PRIMARY key,
+    MaSP char(10) primary key,
     TenSP varchar(255),
-    Loai varchar(20)/*laptop or pc*/,
+    Loai varchar(20),
     ThuongHieu varchar(100),
     MoTa varchar(255),
-    GiaBan  DECIMAL(10,0),
+    GiaBan decimal(10,0),
     SoLuong int check(SoLuong>0)
-    );
- CREATE table CT_cart(
-            MaCart char(20),
-            MaSP char(10),
-     		SoLuong int check (SoLuong>0),
-     Gia  DECIMAL(10,0)
-            );
-            
-         ALTER TABLE CT_cart
-         add CONSTRAINT fk_ct_c foreign key (MaCart) REFERENCES Cart(MaCart),
-         add constraint fk_ct_sp foreign key(MaSP) REFERENCES SanPham(MaSP);
-         create table DonHang(
-             MaDH char(10) primary key,
+);
+
+create table CT_cart(
+    MaCart char(20),
+    MaSP char(10),
+    SoLuong int check(SoLuong>0),
+    Gia decimal(10,0)
+);
+
+alter table CT_cart
+add constraint fk_ct_c foreign key (MaCart) references Cart(MaCart),
+add constraint fk_ct_sp foreign key (MaSP) references SanPham(MaSP);
+
+create table DonHang(
+    MaDH char(10) primary key,
     MaKH varchar(20),
-             NgayDat date,
-             TongTien  DECIMAL(10,0),
-             TrangThai enum('huy','Cho xac nhan','Dang Giao','Da Giao')DEFAULT 'Cho xac nhan'
-             );
+    NgayDat date,
+    TongTien decimal(10,0),
+    TrangThai enum('huy','Cho xac nhan','Dang Giao','Da Giao') default 'Cho xac nhan'
+);
+
+alter table DonHang
+add constraint fk_dh_kh foreign key (MaKH) references users(maKH);
 
 create table CT_donhang(
     MaDH char(10),
     MaSP char(10),
-    SoLuong int,
-    DonGia  DECIMAL(10,0),
-    ThanhTien  DECIMAL(10,0)
-    );
+    SoLuong int check(SoLuong>0),
+    DonGia decimal(10,0),
+    ThanhTien decimal(10,0)
+);
+
 alter table CT_donhang
-add constraint ck_sl check(SoLuong>0);
-alter table CT_donhang
-add constraint fk_ct_hd foreign key (MaDH) REFERENCES DonHang(MaDH);
-alter table CT_donhang
-add constraint fk_ctdh_sp foreign key(MaSP) references SanPham(MaSP);
+add constraint fk_ct_hd foreign key (MaDH) references DonHang(MaDH),
+add constraint fk_ctdh_sp foreign key (MaSP) references SanPham(MaSP);
 
 create table ThanhToan(
-    MaTT char(10),
+    MaTT char(10) primary key,
     MaDH char(10),
-    PhuongThuc enum('Chuyen khoan','Tien Mat')DEFAULT 'Tien Mat',
-     Ngayvagio datetime,
-   TrangThai enum('Chua Thanh Toan','Da Thanh toan') DEFAULT'Chua Thanh Toan'
+    PhuongThuc enum('Chuyen khoan','Tien Mat') default 'Tien Mat',
+    Ngayvagio datetime,
+    TrangThai enum('Chua Thanh Toan','Da Thanh Toan') default 'Chua Thanh Toan'
 );
-    
-  ALTER table ThanhToan
-  add constraint fk_tt_dh FOREIGN key(MaDH) REFERENCES DonHang(MaDH);
+
+alter table ThanhToan
+add constraint fk_tt_dh foreign key (MaDH) references DonHang(MaDH);
+
 create table admin(
-TKadmin varchar(20) primary key,
-PASS varchar(20),
-tenadmin varchar(200),
-email varchar(255),
+    TKadmin varchar(20) primary key,
+    PASS varchar(20),
+    tenadmin varchar(200),
+    email varchar(255)
 );
