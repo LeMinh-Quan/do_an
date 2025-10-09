@@ -1,118 +1,57 @@
 create database my_db;
 use my_db;
-
-create table KhachHang(
-    MaKH char(50) primary key,
-    TenKH varchar(255),
-    Email varchar(100),
+create table users(
+    maKH varchar(20)PRIMARY KEY,
+    HoTen varchar(255),
+    email varchar(255),
+    pass varchar(10),
     SDT char(10),
-    DChi varchar(255)
-);
-
+    DiaChi varchar(255),
+    VaiTro enum('admin','user')DEFAULT 'user'
+    );
+create table Cart(
+        MaCart char(20) PRIMARY key,
+    userid varchar(20),
+    ngaytao date
+        );
+        
+alter table Cart
+add constraint fk_c_u FOREIGN key (userid) REFERENCES users(maKH);
 create table SanPham(
-    MaSP char(50) primary key,
-    TenSP varchar(100),
-    LoaiSP varchar(100),
+    MaSP char(10) PRIMARY key,
+    TenSP varchar(255),
+    Loai varchar(20)/*laptop or pc*/,
+    ThuongHieu varchar(100),
     MoTa varchar(255),
-    GiaBan DECIMAL(10,0),
-    SoLuong int
-);
+    GiaBan  DECIMAL(10,0),
+    SoLuong int check(SoLuong>0),
+    );
+ CREATE table CT_cart(
+            MaCart char(20),
+            MaSP char(10),
+     		SoLuong int check (SoLuong>0),
+     Gia  DECIMAL(10,0)
+            );
+            
+         ALTER TABLE CT_cart
+         add CONSTRAINT fk_ct_c foreign key (MaCart) REFERENCES Cart(MaCart),
+         add constraint fk_ct_sp foreign key(MaSP) SanPham(MaSP);
+         create DonHang(
+             MaDH char(10) primary key,
+    MaKH varchar(20),
+             NgayDat date,
+             TongTien  DECIMAL(10,0),
+             TrangThai enum('huy','Cho xac nhan','Dang Giao','Da Giao')DEFAULT 'Cho xac nhan'
+             );
 
-alter table SanPham
-add constraint ck_SLuong check(SoLuong >= 0);
-
-CREATE TABLE GioHang(
-    MaGH char(50),
-    MaKH char(50),
-    MaSP char(50),
-    SoLuong int check (SoLuong > 0),
-    PRIMARY KEY (MaGH, MaSP),
-    FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
-    FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
-);
-
-create table DonHang(
-    MaDH char(50) primary key,
-    MaKH char(50),
-    ngay_gio_dat datetime,
-    tongtien DECIMAL(10,0),
-    trangthai char(20)
-);
-
-alter table DonHang
-add constraint fk_dh_kh foreign key (MaKH) references KhachHang(MaKH);
-
-create table CT_DHang(
-    MaCTDon char(50) primary key,
-    MaDonHang char(50),
-    MaSP char(50),
-    SoLuong int check(SoLuong > 0)
-);
-
-alter table CT_DHang
-add constraint fk_ct_dh foreign key (MaDonHang) references DonHang(MaDH),
-add constraint fk_ct_sp foreign key (MaSP) references SanPham(MaSP);
-
-/*admin*/
-CREATE TABLE admin(
-    MaNV char(20) primary key,
-    pass char(20),
-    Ho_Ten varchar(100),
-    email varchar(100)
-);
-use my_db;
-
--- Chen du lieu vao bang KhachHang
-INSERT INTO KhachHang (MaKH, TenKH, Email, SDT, DChi) VALUES
-('KH001', 'Nguyen Van An', 'nguyenvanan@gmail.com', '0901234567', '123 Nguyen Trai, Q.1, TP.HCM'),
-('KH002', 'Tran Thi Bich', 'tranthibich@yahoo.com', '0912345678', '45 Le Loi, Q.3, TP.HCM'),
-('KH003', 'Le Hoang Nam', 'lehoangnam@gmail.com', '0923456789', '78 Pasteur, Q.1, TP.HCM'),
-('KH004', 'Pham Minh Tuan', 'minhtuan@gmail.com', '0934567890', '56 Cach Mang Thang 8, Q.10, TP.HCM'),
-('KH005', 'Hoang Thuy Linh', 'linhhoang@gmail.com', '0945678901', '234 Nguyen Van Cu, Q.5, TP.HCM');
-
--- Chen du lieu vao bang SanPham
-INSERT INTO SanPham (MaSP, TenSP, LoaiSP, MoTa, GiaBan, SoLuong) VALUES
-('SP001', 'RAM DDR4 8GB', 'RAM', 'RAM Kingston 8GB DDR4 3200MHz', 650000, 50),
-('SP002', 'SSD 256GB', 'SSD', 'SSD Samsung 256GB NVMe M.2', 850000, 30),
-('SP003', 'Card man hinh RTX 3060', 'VGA', 'Card man hinh NVIDIA RTX 3060 12GB', 11500000, 15),
-('SP004', 'Ban phim co', 'Ban phim', 'Ban phim co Dareu EK87 Blue Switch', 1200000, 25),
-('SP005', 'Chuot gaming', 'Chuot', 'Chuot Logitech G102 Lightsync', 450000, 40),
-('SP006', 'Tai nghe gaming', 'Tai nghe', 'Tai nghe HyperX Cloud Stinger', 850000, 20),
-('SP007', 'Mainboard B550', 'Mainboard', 'Mainboard ASUS ROG Strix B550-F Gaming', 4200000, 10),
-('SP008', 'CPU Core i5', 'CPU', 'Intel Core i5-12400F', 4200000, 18),
-('SP009', 'Nguon 750W', 'PSU', 'Nguon may tinh Corsair RM750 80 Plus Gold', 2500000, 12),
-('SP010', 'Tan nhiet CPU', 'Tan nhiet', 'Tan nhiet khi Deepcool GAMMAXX 400', 550000, 35);
-
--- Chen du lieu vao bang GioHang
-INSERT INTO GioHang (MaGH, MaKH, MaSP, SoLuong) VALUES
-('GH001', 'KH001', 'SP002', 1),
-('GH001', 'KH001', 'SP004', 1),
-('GH002', 'KH002', 'SP005', 2),
-('GH003', 'KH003', 'SP001', 2),
-('GH003', 'KH003', 'SP003', 1),
-('GH004', 'KH004', 'SP006', 1),
-('GH005', 'KH005', 'SP008', 1);
-
--- Chen du lieu vao bang DonHang
-INSERT INTO DonHang (MaDH, MaKH, ngay_gio_dat, tongtien, trangthai) VALUES
-('DH001', 'KH001', '2024-01-15 10:30:00', 2050000, 'Da giao'),
-('DH002', 'KH002', '2024-01-16 14:20:00', 900000, 'Dang giao'),
-('DH003', 'KH003', '2024-01-17 09:15:00', 12800000, 'Da giao'),
-('DH004', 'KH004', '2024-01-18 16:45:00', 850000, 'Cho xac nhan'),
-('DH005', 'KH005', '2024-01-19 11:30:00', 4200000, 'Dang xu ly');
-
--- Chen du lieu vao bang CT_DHang
-INSERT INTO CT_DHang (MaCTDon, MaDonHang, MaSP, SoLuong) VALUES
-('CT001', 'DH001', 'SP002', 1),
-('CT002', 'DH001', 'SP004', 1),
-('CT003', 'DH002', 'SP005', 2),
-('CT004', 'DH003', 'SP001', 2),
-('CT005', 'DH003', 'SP003', 1),
-('CT006', 'DH004', 'SP006', 1),
-('CT007', 'DH005', 'SP008', 1);
-
--- Chen du lieu vao bang admin
-INSERT INTO admin (MaNV, pass, Ho_Ten, email) VALUES
-('AD001', 'admin123', 'Nguyen Van Quan tri', 'admin@mycomputer.com'),
-('AD002', 'securepass', 'Tran Thi Quan ly', 'manager@mycomputer.com'),
-('AD003', 'password456', 'Le Van Nhan vien', 'staff@mycomputer.com');
+create table CT_donhang(
+    MaDH char(10),
+    MaSP char(10),
+    SoLuong int,
+    DonGia  DECIMAL(10,0),
+    ThanhTien  DECIMAL(10,0)
+    );
+alter table CT_donhang
+add constraint ck_sl check(SoLuong>0),
+add constraint fk_ct_hd foreign key (MaDH) REFERENCES DonHang(MaDH),
+add constraint fk_ct_sp foreign key(MaSP) references SanPham(MaSP);
