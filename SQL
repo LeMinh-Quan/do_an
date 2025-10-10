@@ -10,7 +10,7 @@ create table users(
     DiaChi varchar(255),
     VaiTro enum('admin','user') default 'user'
 );
-
+/*gio hang*/
 create table Cart(
     MaCart char(20) primary key,
     userid varchar(20),
