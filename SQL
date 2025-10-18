@@ -67,7 +67,7 @@ add constraint fk_ctdh_sp foreign key (MaSP) references SanPham(MaSP);
 create table ThanhToan(
     MaTT char(10) primary key,
     MaDH char(10),
-    PhuongThuc enum('Chuyen khoan','Tien Mat') default 'Tien Mat',
+    PhuongThuc ENUM('Chuyen khoan', 'Vi dien tu', 'The tin dung', 'Tien mat') DEFAULT 'Tien mat',
     Ngayvagio datetime,
     TrangThai enum('Chua Thanh Toan','Da Thanh Toan') default 'Chua Thanh Toan'
 );
@@ -81,3 +81,24 @@ create table admin(
     tenadmin varchar(200),
     email varchar(255)
 );
+	CREATE TABLE BaoCao (
+    MaBC CHAR(10) PRIMARY KEY,
+    NgayBaoCao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    TongDon INT,
+    TongDoanhThu DECIMAL(12,0),
+    SanPhamBanChay VARCHAR(255),
+    NguoiMuaNhieu VARCHAR(255),
+    GhiChu VARCHAR(255)
+);
+
+alter table SanPham 
+add constraint ck_gia check(GiaBan>0);
+
+alter table CT_Cart 
+add CONSTRAINT pk_ma PRIMARY key (MaCart,MaSP);
+
+alter table CT_donhang
+add constraint pk_cthd primary key(MaDH,MaSP);
+
+alter table admin
+add constraint u_ad UNIQUE (email);
