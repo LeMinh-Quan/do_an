@@ -102,3 +102,19 @@ add constraint pk_cthd primary key(MaDH,MaSP);
 
 alter table admin
 add constraint u_ad UNIQUE (email);
+
+create table MoTa(
+ MaSP char(10) primary key,
+ CPU varchar(100),
+ RAM varchar(100),
+ ROM varchar(100),
+ GPU varchar(100),
+ ManHinh varchar(100),
+ HeDieuHanh varchar(100),
+ MauSac VARCHAR(50),
+    MoTa varchar(255),
+);
+
+
+alter table MoTa
+add constraint fk_mt foreign key (MaSP) references SanPham(MaSP);
