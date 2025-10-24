@@ -112,7 +112,7 @@ create table MoTa(
  ManHinh varchar(100),
  HeDieuHanh varchar(100),
  MauSac VARCHAR(50),
-    MoTa varchar(255),
+    MoTa varchar(255)
 );
 
 
