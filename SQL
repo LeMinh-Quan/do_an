@@ -5,7 +5,7 @@ create table users(
     maKH varchar(20) primary key,
     HoTen varchar(255),
     email varchar(255),
-    pass varchar(10),
+    pass varchar(200),
     SDT char(10),
     VaiTro enum('admin','user') default 'user'
 );
@@ -116,19 +116,67 @@ add constraint u_ad UNIQUE (email);
 
 create table MoTa(
  MaSP char(10) primary key,
- CPU varchar(100),
- RAM varchar(100),
- ROM varchar(100),
- GPU varchar(100),
- ManHinh varchar(100),
- HeDieuHanh varchar(100),
- MauSac VARCHAR(50),
-    MoTa varchar(255)
+ CPU varchar(20),
+ RAM varchar(20),
+ ROM varchar(20),
+ GPU varchar(20),
+ ManHinh varchar(20),
+ HeDieuHanh varchar(20),
+ MauSac VARCHAR(20),
+    ChiTiet varchar(255)
+);
+CREATE TABLE CPU (
+    MaCPU VARCHAR(20) PRIMARY KEY,
+    TenCPU VARCHAR(100) NOT NULL,
+    MoTa TEXT
+);
+
+CREATE TABLE RAM (
+    MaRAM VARCHAR(20) PRIMARY KEY,
+    DungLuong VARCHAR(50) NOT NULL,
+    LoaiRAM VARCHAR(50),
+    TocDo VARCHAR(50)
+);
+CREATE TABLE ROM (
+    MaROM VARCHAR(20) PRIMARY KEY,
+    DungLuong VARCHAR(50) NOT NULL,
+    LoaiROM VARCHAR(50),
+    MoTa TEXT
+);
+CREATE TABLE GPU (
+    MaGPU VARCHAR(20) PRIMARY KEY,
+    TenGPU VARCHAR(100) NOT NULL,
+    LoaiGPU VARCHAR(50),
+    MoTa TEXT
+);
+CREATE TABLE ManHinh (
+    MaMH VARCHAR(20) PRIMARY KEY,
+    KichThuoc VARCHAR(50),
+    DoPhanGiai VARCHAR(50),
+    TanSo VARCHAR(50),
+    CongNghe VARCHAR(100)
+);
+CREATE TABLE HeDieuHanh (
+    MaHDH VARCHAR(20) PRIMARY KEY,
+    TenHDH VARCHAR(100) NOT NULL,
+    PhienBan VARCHAR(50)
+);
+CREATE TABLE MauSac (
+    MaMau VARCHAR(20) PRIMARY KEY,
+    TenMau VARCHAR(50) NOT NULL,
+    MaHex VARCHAR(10)
 );
 
 
-alter table MoTa
-add constraint fk_mt foreign key (MaSP) references SanPham(MaSP);
+ALTER TABLE MoTa
+ADD CONSTRAINT fk_mt FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+ADD CONSTRAINT fk_cpu FOREIGN KEY (CPU) REFERENCES CPU(MaCPU),
+ADD CONSTRAINT fk_ram FOREIGN KEY (RAM) REFERENCES RAM(MaRAM),
+ADD CONSTRAINT fk_rom FOREIGN KEY (ROM) REFERENCES ROM(MaROM),
+ADD CONSTRAINT fk_gpu FOREIGN KEY (GPU) REFERENCES GPU(MaGPU),
+ADD CONSTRAINT fk_mh FOREIGN KEY (ManHinh) REFERENCES ManHinh(MaMH),
+ADD CONSTRAINT fk_hdh FOREIGN KEY (HeDieuHanh) REFERENCES HeDieuHanh(MaHDH),
+ADD CONSTRAINT fk_mau FOREIGN KEY (MauSac) REFERENCES MauSac(MaMau);
 
 
 -- 🔹 1. ASUS
@@ -235,46 +283,3 @@ INSERT INTO MoTa VALUES
 ('AP03','Apple M2','8GB','512GB SSD','GPU 8 nhân','13.6 inch Retina','macOS Sonoma','Vàng','Thiết kế mỏng nhẹ'),
 ('AP04','Apple M3','16GB','1TB SSD','GPU 10 nhân','14 inch Liquid Retina','macOS Sequoia','Xám','Mạnh mẽ, chuyên nghiệp'),
 ('AP05','Apple M3 Max','32GB','1TB SSD','GPU 40 nhân','16 inch Liquid Retina XDR','macOS Sequoia','Bạc','Đỉnh cao hiệu năng');
-
-
-CREATE TABLE CPU (
-    MaCPU VARCHAR(20) PRIMARY KEY,
-    TenCPU VARCHAR(100) NOT NULL,
-    MoTa TEXT
-);
-CREATE TABLE RAM (
-    MaRAM VARCHAR(20) PRIMARY KEY,
-    DungLuong VARCHAR(50) NOT NULL,
-    LoaiRAM VARCHAR(50),
-    TocDo VARCHAR(50)
-);
-CREATE TABLE ROM (
-    MaROM VARCHAR(20) PRIMARY KEY,
-    DungLuong VARCHAR(50) NOT NULL,
-    LoaiROM VARCHAR(50),
-    MoTa TEXT
-);
-CREATE TABLE GPU (
-    MaGPU VARCHAR(20) PRIMARY KEY,
-    TenGPU VARCHAR(100) NOT NULL,
-    LoaiGPU VARCHAR(50),
-    MoTa TEXT
-);
-CREATE TABLE ManHinh (
-    MaMH VARCHAR(20) PRIMARY KEY,
-    KichThuoc VARCHAR(50),
-    DoPhanGiai VARCHAR(50),
-    TanSo VARCHAR(50),
-    CongNghe VARCHAR(100)
-);
-CREATE TABLE HeDieuHanh (
-    MaHDH VARCHAR(20) PRIMARY KEY,
-    TenHDH VARCHAR(100) NOT NULL,
-    PhienBan VARCHAR(50)
-);
-CREATE TABLE MauSac (
-    MaMau VARCHAR(20) PRIMARY KEY,
-    TenMau VARCHAR(50) NOT NULL,
-    MaHex VARCHAR(10)
-);
-
