@@ -272,4 +272,6 @@ VALUES
 
 
 insert into admin values
-('admin','202cb962ac59075b964b07152d234b70','QUAN','0306241143@gmail.com');
+('admin','202cb962ac59075b964b07152d234b70','QUAN','0306241143@caothang.edu.vn'),
+('admin2','202cb962ac59075b964b07152d234b70','SANG','0306241144@caothang.edu.vn'),
+('admin3','202cb962ac59075b964b07152d234b70','TAI','0306241145@caothang.edu.vn');
