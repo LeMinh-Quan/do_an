@@ -178,48 +178,98 @@ ADD CONSTRAINT fk_mh FOREIGN KEY (ManHinh) REFERENCES ManHinh(MaMH),
 ADD CONSTRAINT fk_hdh FOREIGN KEY (HeDieuHanh) REFERENCES HeDieuHanh(MaHDH),
 ADD CONSTRAINT fk_mau FOREIGN KEY (MauSac) REFERENCES MauSac(MaMau);
 
-INSERT INTO CPU VALUES
-('Ryzen 7 6800H','AMD Ryzen 7 6800H','8 nhân 16 luồng'),
-('Ryzen 9 6900HS','AMD Ryzen 9 6900HS','8 nhân 16 luồng'),
-('Core i5-1240P','Intel Core i5-1240P','12 luồng'),
-('Core i7-12700H','Intel Core i7-12700H','14 nhân 20 luồng'),
-('Core i9-13900HX','Intel Core i9-13900HX','24 nhân'),
-('Apple M1','Apple M1','ARM 8 nhân'),
-('Apple M2','Apple M2','ARM 10 nhân'),
-('Apple M3','Apple M3','ARM 12 nhân'),
-('Apple M3 Max','Apple M3 Max','GPU 40 nhân');
+INSERT INTO SanPham (MaSP, TenSP, Loai, ThuongHieu, MoTa, GiaBan, SoLuong)
+VALUES
+('AC01', 'Acer Nitro 5', 'Laptop', 'ACER', 'Laptop gaming phổ thông', 22990000, 12),
+('AC02', 'Acer Aspire 7', 'Laptop', 'ACER', 'Học tập và chơi game nhẹ', 17990000, 13),
+('AC03', 'Acer Swift 3', 'Laptop', 'ACER', 'Mỏng nhẹ, pin trâu', 21990000, 10),
+('AC04', 'Acer Predator Helios 18', 'Laptop', 'ACER', 'Gaming cao cấp', 38990000, 8),
+('AC05', 'Acer Spin 5', 'Laptop', 'ACER', 'Làm việc, xoay gập', 25990000, 6),
+('AP01', 'MacBook Air M1', 'Laptop', 'APPLE', 'Hiệu năng ổn, pin lâu', 24990000, 8),
+('AP02', 'MacBook Pro M1', 'Laptop', 'APPLE', 'Hiệu năng cao', 26990000, 5),
+('AP03', 'MacBook Air M2', 'Laptop', 'APPLE', 'Thiết kế mỏng nhẹ', 29990000, 6),
+('AP04', 'MacBook Pro 13 M3', 'Laptop', 'APPLE', 'Cấu hình mạnh', 44990000, 3),
+('AP05', 'MacBook Pro 16 M3 Max', 'Laptop', 'APPLE', 'Cao cấp nhất', 64990000, 3);
 
-INSERT INTO RAM VALUES
-('8GB','8GB','DDR4','3200MHz'),
-('16GB','16GB','DDR4','3200MHz'),
-('32GB','32GB','DDR5','4800MHz');
+INSERT INTO MoTa (MaSP, CPU, RAM, ROM, GPU, ManHinh, HeDieuHanh, MauSac, ChiTiet)
+VALUES
+('AC01', 'CPU01', 'RAM01', 'ROM01', 'GPU01', 'MH01', 'HDH01', 'MAU01', 'Hiệu năng ổn đCPU
+INSERT INTO CPU (MaCPU, TenCPU, MoTa)
+VALUES
+('CPU01', 'Core i5-12500H', 'Hiệu năng tầm trung cho gaming'),
+('CPU02', 'Ryzen 5 5625U', 'Tiết kiệm điện, hiệu năng ổn'),
+('CPU03', 'Core i5-1335U', 'CPU thế hệ mới, mạnh mẽ'),
+('CPU04', 'Core i9-13900HX', 'Hiệu năng cao cho gaming nặng'),
+('CPU05', 'Core i7-1355U', 'Hiệu quả cho công việc'),
+('CPU06', 'Apple M1', 'Chip Apple hiệu năng tốt'),
+('CPU07', 'Apple M1 Pro', 'Chip Apple cao cấp'),
+('CPU08', 'Apple M2', 'Hiệu suất cải thiện so với M1'),
+('CPU09', 'Apple M3', 'Chip mạnh cho dân chuyên nghiệp'),
+('CPU10', 'Apple M3 Max', 'Hiệu năng đỉnh cao');
 
-INSERT INTO ROM VALUES
-('256GB SSD','256GB SSD','SSD NVMe','Tốc độ cao'),
-('512GB SSD','512GB SSD','SSD NVMe','Phổ biến'),
-('1TB SSD','1TB SSD','SSD NVMe','Lưu trữ lớn');
+-- BẢNG RAM
+INSERT INTO RAM (MaRAM, DungLuong, LoaiRAM, TocDo)
+VALUES
+('RAM01', '16GB', 'DDR4', '3200MHz'),
+('RAM02', '32GB', 'DDR5', '4800MHz'),
+('RAM03', '8GB', 'DDR4', '2666MHz');
 
-INSERT INTO GPU VALUES
-('RTX 3050Ti','NVIDIA RTX 3050Ti','Rời','Gaming tầm trung'),
-('RTX 4060','NVIDIA RTX 4060','Rời','Gaming cao cấp'),
-('Intel Iris Xe','Intel Iris Xe','Tích hợp','Đồ họa văn phòng'),
-('Apple GPU','Apple GPU','Tích hợp','Hiệu năng cao M-series');
+-- BẢNG ROM
+INSERT INTO ROM (MaROM, DungLuong, LoaiROM, MoTa)
+VALUES
+('ROM01', '512GB', 'SSD', 'Dung lượng vừa đủ cho học tập'),
+('ROM02', '1TB', 'SSD', 'Dung lượng cao, tốc độ nhanh');
 
-INSERT INTO ManHinh VALUES
-('15.6 inch FHD','15.6"','1920x1080','144Hz','IPS'),
-('14 inch FHD','14"','1920x1080','60Hz','IPS'),
-('13.3 inch Retina','13.3"','2560x1600','120Hz','Retina');
+-- BẢNG GPU
+INSERT INTO GPU (MaGPU, TenGPU, LoaiGPU, MoTa)
+VALUES
+('GPU01', 'RTX 3050', 'NVIDIA', 'Card đồ họa tầm trung'),
+('GPU02', 'GTX 1650', 'NVIDIA', 'Card phổ thông cho game nhẹ'),
+('GPU03', 'Intel Iris Xe', 'Intel', 'Đồ họa tích hợp'),
+('GPU04', 'RTX 4080', 'NVIDIA', 'Card cao cấp cho gaming'),
+('GPU05', 'Intel Iris Xe', 'Intel', 'Đồ họa tích hợp cho công việc'),
+('GPU06', 'GPU 7 nhân', 'Apple', 'GPU tích hợp M1'),
+('GPU07', 'GPU 10 nhân', 'Apple', 'GPU mạnh trên M1 Pro'),
+('GPU08', 'GPU 8 nhân', 'Apple', 'Hiệu năng cân đối'),
+('GPU09', 'GPU 10 nhân', 'Apple', 'Hiệu năng cao M3'),
+('GPU10', 'GPU 40 nhân', 'Apple', 'Hiệu năng đỉnh M3 Max');
 
-INSERT INTO HeDieuHanh VALUES
-('Windows 11','Windows 11','23H2'),
-('macOS Sonoma','macOS Sonoma','14.0'),
-('macOS Sequoia','macOS Sequoia','15.0');
+-- BẢNG MÀN HÌNH
+INSERT INTO ManHinh (MaMH, KichThuoc, DoPhanGiai, TanSo, CongNghe)
+VALUES
+('MH01', '15.6 inch', 'FHD', '144Hz', 'IPS'),
+('MH02', '15.6 inch', 'FHD', '', 'IPS'),
+('MH03', '14 inch', 'FHD', '', 'IPS'),
+('MH04', '18 inch', 'QHD+', '240Hz', 'Mini LED'),
+('MH05', '13.3 inch', 'FHD', '', 'IPS'),
+('MH06', '13.3 inch', 'Retina', '', 'LED'),
+('MH07', '13.3 inch', 'Retina', '', 'LED'),
+('MH08', '13.6 inch', 'Retina', '', 'LED'),
+('MH09', '14 inch', 'Liquid Retina', '', 'XDR'),
+('MH10', '16 inch', 'Liquid Retina XDR', '', 'XDR');
 
-INSERT INTO MauSac VALUES
-('Đen','Đen','#000000'),
-('Bạc','Bạc','#C0C0C0'),
-('Xám','Xám','#808080'),
-('Xanh','Xanh','#0000FF'),
-('Trắng','Trắng','#FFFFFF'),
-('Vàng','Vàng','#FFD700'),
-('Đỏ','Đỏ','#FF0000');
+-- BẢNG HỆ ĐIỀU HÀNH
+INSERT INTO HeDieuHanh (MaHDH, TenHDH, PhienBan)
+VALUES
+('HDH01', 'Windows', '11'),
+('HDH02', 'Windows', '11 Pro'),
+('HDH03', 'macOS', 'Sonoma'),
+('HDH04', 'macOS', 'Sequoia');
+
+-- BẢNG MÀU SẮC
+INSERT INTO MauSac (MaMau, TenMau, MaHex)
+VALUES
+('MAU01', 'Đen', '#000000'),
+('MAU02', 'Xám', '#808080'),
+('MAU03', 'Bạc', '#C0C0C0'),
+('MAU04', 'Xanh', '#1E90FF'),
+('MAU05', 'Bạc', '#D9D9D9'),
+('MAU06', 'Bạc', '#E0E0E0'),
+('MAU07', 'Xám', '#A9A9A9'),
+('MAU08', 'Vàng', '#FFD700'),
+('MAU09', 'Xám', '#C0C0C0'),
+('MAU10', 'Bạc', '#F0F0F0');
+
+
+insert into admin values
+('admin','202cb962ac59075b964b07152d234b70','QUAN','0306241143@gmail.com');
