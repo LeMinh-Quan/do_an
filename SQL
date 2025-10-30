@@ -178,108 +178,48 @@ ADD CONSTRAINT fk_mh FOREIGN KEY (ManHinh) REFERENCES ManHinh(MaMH),
 ADD CONSTRAINT fk_hdh FOREIGN KEY (HeDieuHanh) REFERENCES HeDieuHanh(MaHDH),
 ADD CONSTRAINT fk_mau FOREIGN KEY (MauSac) REFERENCES MauSac(MaMau);
 
+INSERT INTO CPU VALUES
+('Ryzen 7 6800H','AMD Ryzen 7 6800H','8 nhân 16 luồng'),
+('Ryzen 9 6900HS','AMD Ryzen 9 6900HS','8 nhân 16 luồng'),
+('Core i5-1240P','Intel Core i5-1240P','12 luồng'),
+('Core i7-12700H','Intel Core i7-12700H','14 nhân 20 luồng'),
+('Core i9-13900HX','Intel Core i9-13900HX','24 nhân'),
+('Apple M1','Apple M1','ARM 8 nhân'),
+('Apple M2','Apple M2','ARM 10 nhân'),
+('Apple M3','Apple M3','ARM 12 nhân'),
+('Apple M3 Max','Apple M3 Max','GPU 40 nhân');
 
--- 🔹 1. ASUS
-INSERT INTO SanPham VALUES
-('AS01','ASUS TUF Gaming A15','Laptop','ASUS','Laptop gaming hiệu năng cao',24990000,10),
-('AS02','ASUS ROG Zephyrus G14','Laptop','ASUS','Thiết kế nhỏ gọn, mạnh mẽ',32990000,8),
-('AS03','ASUS Vivobook 15','Laptop','ASUS','Phù hợp sinh viên, văn phòng',15990000,15),
-('AS04','ASUS Zenbook OLED','Laptop','ASUS','Màn OLED sắc nét',27990000,5),
-('AS05','ASUS ExpertBook B5','Laptop','ASUS','Doanh nhân cao cấp',30990000,7);
+INSERT INTO RAM VALUES
+('8GB','8GB','DDR4','3200MHz'),
+('16GB','16GB','DDR4','3200MHz'),
+('32GB','32GB','DDR5','4800MHz');
 
-INSERT INTO MoTa VALUES
-('AS01','Ryzen 7 6800H','16GB','512GB SSD','RTX 3050Ti','15.6 inch FHD 144Hz','Windows 11','Đen','Laptop chiến game mượt'),
-('AS02','Ryzen 9 6900HS','16GB','1TB SSD','RTX 3060','14 inch QHD+','Windows 11','Trắng','Hiệu năng cao, gọn nhẹ'),
-('AS03','Core i5-1240P','8GB','512GB SSD','Intel Iris Xe','15.6 inch FHD','Windows 11','Bạc','Phù hợp học tập, văn phòng'),
-('AS04','Core i7-12700H','16GB','1TB SSD','RTX 3050','14 inch OLED 2.8K','Windows 11','Xanh dương','Mỏng nhẹ, sang trọng'),
-('AS05','Core i5-1240P','16GB','512GB SSD','Intel Iris Xe','13.3 inch FHD','Windows 11','Xám','Siêu nhẹ, pin lâu');
+INSERT INTO ROM VALUES
+('256GB SSD','256GB SSD','SSD NVMe','Tốc độ cao'),
+('512GB SSD','512GB SSD','SSD NVMe','Phổ biến'),
+('1TB SSD','1TB SSD','SSD NVMe','Lưu trữ lớn');
 
--- 🔹 2. DELL
-INSERT INTO SanPham VALUES
-('DL01','Dell Inspiron 15','Laptop','DELL','Máy học tập bền bỉ',15990000,12),
-('DL02','Dell XPS 13','Laptop','DELL','Thiết kế mỏng nhẹ cao cấp',33990000,6),
-('DL03','Dell G15 Gaming','Laptop','DELL','Laptop gaming mạnh mẽ',27990000,9),
-('DL04','Dell Vostro 14','Laptop','DELL','Doanh nghiệp nhỏ',17990000,11),
-('DL05','Dell Latitude 7430','Laptop','DELL','Dòng doanh nhân',31990000,4);
+INSERT INTO GPU VALUES
+('RTX 3050Ti','NVIDIA RTX 3050Ti','Rời','Gaming tầm trung'),
+('RTX 4060','NVIDIA RTX 4060','Rời','Gaming cao cấp'),
+('Intel Iris Xe','Intel Iris Xe','Tích hợp','Đồ họa văn phòng'),
+('Apple GPU','Apple GPU','Tích hợp','Hiệu năng cao M-series');
 
-INSERT INTO MoTa VALUES
-('DL01','Core i5-1235U','8GB','512GB SSD','Intel Iris Xe','15.6 inch FHD','Windows 11','Bạc','Máy ổn định, giá hợp lý'),
-('DL02','Core i7-1360P','16GB','512GB SSD','Intel Iris Xe','13.4 inch FHD+','Windows 11','Bạc','Cao cấp, gọn gàng'),
-('DL03','Ryzen 7 7840HS','16GB','1TB SSD','RTX 4060','15.6 inch FHD 165Hz','Windows 11','Đen','Chiến game tốt'),
-('DL04','Core i5-1240P','8GB','512GB SSD','Intel UHD','14 inch FHD','Windows 11','Xám','Bền bỉ cho doanh nghiệp nhỏ'),
-('DL05','Core i7-1270P','16GB','512GB SSD','Intel Iris Xe','14 inch FHD','Windows 11','Đen','Máy doanh nhân bền đẹp');
+INSERT INTO ManHinh VALUES
+('15.6 inch FHD','15.6"','1920x1080','144Hz','IPS'),
+('14 inch FHD','14"','1920x1080','60Hz','IPS'),
+('13.3 inch Retina','13.3"','2560x1600','120Hz','Retina');
 
--- 🔹 3. ACER
-INSERT INTO SanPham VALUES
-('AC01','Acer Nitro 5','Laptop','ACER','Laptop gaming phổ thông',22990000,10),
-('AC02','Acer Aspire 7','Laptop','ACER','Học tập và chơi game nhẹ',17990000,13),
-('AC03','Acer Swift 3','Laptop','ACER','Mỏng nhẹ, pin trâu',18990000,8),
-('AC04','Acer Predator Helios 16','Laptop','ACER','Gaming cao cấp',38990000,5),
-('AC05','Acer Spin 5','Laptop','ACER','Cảm ứng xoay gập',23990000,6);
+INSERT INTO HeDieuHanh VALUES
+('Windows 11','Windows 11','23H2'),
+('macOS Sonoma','macOS Sonoma','14.0'),
+('macOS Sequoia','macOS Sequoia','15.0');
 
-INSERT INTO MoTa VALUES
-('AC01','Core i5-12500H','16GB','512GB SSD','RTX 3050','15.6 inch FHD 144Hz','Windows 11','Đen','Hiệu năng ổn định'),
-('AC02','Ryzen 5 5625U','8GB','512GB SSD','GTX 1650','15.6 inch FHD','Windows 11','Xám','Giá rẻ, đa dụng'),
-('AC03','Core i5-1240P','16GB','512GB SSD','Intel Iris Xe','14 inch FHD','Windows 11','Bạc','Mỏng nhẹ, pin tốt'),
-('AC04','Core i9-13900HX','32GB','1TB SSD','RTX 4080','16 inch QHD+ 240Hz','Windows 11','Đen','Chiến mọi game nặng'),
-('AC05','Core i7-1355U','16GB','512GB SSD','Intel Iris Xe','14 inch cảm ứng','Windows 11','Bạc','Gập 360 độ, đa năng');
-
--- 🔹 4. LENOVO
-INSERT INTO SanPham VALUES
-('LN01','Lenovo IdeaPad 3','Laptop','LENOVO','Laptop sinh viên',13990000,20),
-('LN02','Lenovo Legion 5','Laptop','LENOVO','Laptop gaming mạnh',28990000,9),
-('LN03','Lenovo Yoga 7','Laptop','LENOVO','2-in-1 cao cấp',24990000,7),
-('LN04','Lenovo ThinkPad E14','Laptop','LENOVO','Doanh nhân bền bỉ',25990000,6),
-('LN05','Lenovo LOQ 15','Laptop','LENOVO','Gaming giá rẻ',23990000,8);
-
-INSERT INTO MoTa VALUES
-('LN01','Ryzen 5 5500U','8GB','512GB SSD','AMD Radeon','15.6 inch FHD','Windows 11','Xám','Phù hợp học tập'),
-('LN02','Ryzen 7 6800H','16GB','1TB SSD','RTX 3060','15.6 inch FHD 165Hz','Windows 11','Đen','Máy game mạnh mẽ'),
-('LN03','Core i7-1360P','16GB','512GB SSD','Intel Iris Xe','14 inch cảm ứng OLED','Windows 11','Xanh','Cảm ứng, sang trọng'),
-('LN04','Core i5-1335U','16GB','512GB SSD','Intel Iris Xe','14 inch FHD','Windows 11','Đen','Máy doanh nhân bền bỉ'),
-('LN05','Core i5-12450H','8GB','512GB SSD','RTX 2050','15.6 inch FHD','Windows 11','Trắng','Hiệu năng tốt giá rẻ');
-
--- 🔹 5. HP
-INSERT INTO SanPham VALUES
-('HP01','HP Pavilion 14','Laptop','HP','Phù hợp sinh viên',17990000,14),
-('HP02','HP Omen 16','Laptop','HP','Gaming mạnh mẽ',32990000,5),
-('HP03','HP Victus 15','Laptop','HP','Laptop chơi game giá tốt',22990000,10),
-('HP04','HP Spectre x360','Laptop','HP','2-in-1 cao cấp',35990000,4),
-('HP05','HP Envy 13','Laptop','HP','Thiết kế thời trang',26990000,9);
-
-INSERT INTO MoTa VALUES
-('HP01','Core i5-1335U','8GB','512GB SSD','Intel Iris Xe','14 inch FHD','Windows 11','Bạc','Gọn nhẹ, pin lâu'),
-('HP02','Core i9-13900HX','32GB','1TB SSD','RTX 4070','16 inch QHD+ 165Hz','Windows 11','Đen','Chiến game mạnh'),
-('HP03','Ryzen 5 7535HS','16GB','512GB SSD','RTX 2050','15.6 inch FHD 144Hz','Windows 11','Xanh','Gaming nhẹ'),
-('HP04','Core i7-1360P','16GB','512GB SSD','Intel Iris Xe','13.5 inch OLED','Windows 11','Vàng','Gập xoay cao cấp'),
-('HP05','Core i5-1240P','8GB','512GB SSD','Intel Iris Xe','13.3 inch FHD','Windows 11','Bạc','Thời trang, nhẹ nhàng');
-
--- 🔹 6. MSI
-INSERT INTO SanPham VALUES
-('MS01','MSI GF63 Thin','Laptop','MSI','Laptop gaming mỏng nhẹ',22990000,11),
-('MS02','MSI Katana 15','Laptop','MSI','Gaming tầm trung',25990000,9),
-('MS03','MSI Stealth 14','Laptop','MSI','Cao cấp, mỏng nhẹ',36990000,6),
-('MS04','MSI Creator Z16','Laptop','MSI','Dành cho designer',41990000,4),
-('MS05','MSI Modern 14','Laptop','MSI','Văn phòng nhỏ gọn',15990000,12);
-
-INSERT INTO MoTa VALUES
-('MS01','Core i5-12450H','16GB','512GB SSD','RTX 2050','15.6 inch FHD 144Hz','Windows 11','Đen','Mỏng nhẹ, hiệu năng tốt'),
-('MS02','Core i7-12650H','16GB','512GB SSD','RTX 4060','15.6 inch FHD 144Hz','Windows 11','Đỏ','Gaming mạnh'),
-('MS03','Core i9-13900H','32GB','1TB SSD','RTX 4070','14 inch QHD+','Windows 11','Bạc','Nhẹ, cực mạnh'),
-('MS04','Core i7-13700H','32GB','1TB SSD','RTX 4070','16 inch QHD+','Windows 11','Xám','Thiết kế, đồ họa'),
-('MS05','Core i5-1335U','8GB','512GB SSD','Intel Iris Xe','14 inch FHD','Windows 11','Bạc','Gọn nhẹ, pin tốt');
-
--- 🔹 7. APPLE
-INSERT INTO SanPham VALUES
-('AP01','MacBook Air M1','Laptop','APPLE','Hiệu năng ổn, pin lâu',24990000,8),
-('AP02','MacBook Pro M2','Laptop','APPLE','Hiệu năng cao',35990000,5),
-('AP03','MacBook Air M2','Laptop','APPLE','Thiết kế mới, mỏng nhẹ',29990000,10),
-('AP04','MacBook Pro M3','Laptop','APPLE','Cấu hình cực mạnh',44990000,3),
-('AP05','MacBook Pro 16 M3 Max','Laptop','APPLE','Cao cấp nhất',69990000,2);
-
-INSERT INTO MoTa VALUES
-('AP01','Apple M1','8GB','256GB SSD','GPU 7 nhân','13.3 inch Retina','macOS Sonoma','Bạc','Ổn định, tiết kiệm pin'),
-('AP02','Apple M2','16GB','512GB SSD','GPU 10 nhân','13 inch Retina','macOS Sonoma','Xám','Mạnh mẽ, sang trọng'),
-('AP03','Apple M2','8GB','512GB SSD','GPU 8 nhân','13.6 inch Retina','macOS Sonoma','Vàng','Thiết kế mỏng nhẹ'),
-('AP04','Apple M3','16GB','1TB SSD','GPU 10 nhân','14 inch Liquid Retina','macOS Sequoia','Xám','Mạnh mẽ, chuyên nghiệp'),
-('AP05','Apple M3 Max','32GB','1TB SSD','GPU 40 nhân','16 inch Liquid Retina XDR','macOS Sequoia','Bạc','Đỉnh cao hiệu năng');
+INSERT INTO MauSac VALUES
+('Đen','Đen','#000000'),
+('Bạc','Bạc','#C0C0C0'),
+('Xám','Xám','#808080'),
+('Xanh','Xanh','#0000FF'),
+('Trắng','Trắng','#FFFFFF'),
+('Vàng','Vàng','#FFD700'),
+('Đỏ','Đỏ','#FF0000');
