@@ -92,6 +92,11 @@ create table admin(
     tenadmin varchar(200),
     email varchar(255)
 );
+
+insert into admin values
+('admin','202cb962ac59075b964b07152d234b70','QUAN','0306241143@caothang.edu.vn'),
+('admin2','202cb962ac59075b964b07152d234b70','SANG','0306241144@caothang.edu.vn'),
+('admin3','202cb962ac59075b964b07152d234b70','TAI','0306241145@caothang.edu.vn');
 	CREATE TABLE BaoCao (
     MaBC CHAR(10) PRIMARY KEY,
     NgayBaoCao DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -123,7 +128,7 @@ create table MoTa(
  ManHinh varchar(20),
  HeDieuHanh varchar(20),
  MauSac VARCHAR(20),
-    ChiTiet varchar(255)
+    ChiTiet text
 );
 CREATE TABLE CPU (
     MaCPU VARCHAR(20) PRIMARY KEY,
@@ -270,8 +275,3 @@ VALUES
 ('MAU09', 'Xám', '#C0C0C0'),
 ('MAU10', 'Bạc', '#F0F0F0');
 
-
-insert into admin values
-('admin','202cb962ac59075b964b07152d234b70','QUAN','0306241143@caothang.edu.vn'),
-('admin2','202cb962ac59075b964b07152d234b70','SANG','0306241144@caothang.edu.vn'),
-('admin3','202cb962ac59075b964b07152d234b70','TAI','0306241145@caothang.edu.vn');
