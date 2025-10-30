@@ -183,3 +183,153 @@ ADD CONSTRAINT fk_mh FOREIGN KEY (ManHinh) REFERENCES ManHinh(MaMH),
 ADD CONSTRAINT fk_hdh FOREIGN KEY (HeDieuHanh) REFERENCES HeDieuHanh(MaHDH),
 ADD CONSTRAINT fk_mau FOREIGN KEY (MauSac) REFERENCES MauSac(MaMau);
 
+INSERT INTO CPU (MaCPU, TenCPU, MoTa) VALUES
+('CPU01', 'Core i5-12500H', '12 nhân, hiệu năng gaming phổ thông'),
+('CPU02', 'Ryzen 5 5625U', '6 nhân 12 luồng, tiết kiệm điện'),
+('CPU03', 'Core i5-1335U', 'Thế hệ 13, hiệu năng văn phòng'),
+('CPU04', 'Core i9-13900HX', 'Hiệu năng cực mạnh, gaming cao cấp'),
+('CPU05', 'Core i7-1255U', 'Tiết kiệm điện, hiệu năng tốt'),
+('CPU06', 'Apple M1', 'Chip Apple Silicon đầu tiên'),
+('CPU07', 'Apple M2', 'Chip thế hệ thứ hai của Apple'),
+('CPU08', 'Apple M3', 'Chip thế hệ thứ ba, hiệu năng vượt trội'),
+('CPU09', 'Apple M3 Max', 'Chip M3 cao cấp nhất, cho hiệu suất cực cao'),
+('CPU10', 'Ryzen 7 6800H', '8 nhân 16 luồng, gaming mượt mà'),
+('CPU11', 'Ryzen 9 6900HS', 'Hiệu năng đồ họa cao, tản nhiệt tốt'),
+('CPU12', 'Core i5-1240P', 'Cân bằng giữa hiệu năng và pin'),
+('CPU13', 'Core i7-1360P', 'CPU thế hệ 13 tối ưu hiệu năng'),
+('CPU14', 'Core i7-13700H', 'Đa nhân mạnh mẽ, gaming và đồ họa'),
+('CPU15', 'Core i9-13900H', 'CPU cao cấp cho sáng tạo nội dung'),
+('CPU16', 'Core i5-1335U', 'Phù hợp laptop mỏng nhẹ'),
+('CPU17', 'Ryzen 5 7535HS', 'CPU mới, gaming nhẹ mượt'),
+('CPU18', 'Core i7-1355U', 'Hiệu năng ổn định, pin lâu');
+
+INSERT INTO RAM (MaRAM, DungLuong, LoaiRAM, TocDo) VALUES
+('RAM01', '8GB', 'DDR4', '3200MHz'),
+('RAM02', '16GB', 'DDR4', '3200MHz'),
+('RAM03', '32GB', 'DDR5', '4800MHz');
+
+INSERT INTO ROM (MaROM, DungLuong, LoaiROM, MoTa) VALUES
+('ROM01', '256GB', 'SSD NVMe', 'Phù hợp học tập, văn phòng'),
+('ROM02', '512GB', 'SSD NVMe', 'Tốc độ cao, dung lượng phổ biến'),
+('ROM03', '1TB', 'SSD NVMe', 'Gaming, đồ họa chuyên nghiệp');
+
+INSERT INTO GPU (MaGPU, TenGPU, LoaiGPU, MoTa) VALUES
+('GPU01', 'RTX 3050', 'Rời', 'Gaming phổ thông'),
+('GPU02', 'RTX 3060', 'Rời', 'Gaming mạnh'),
+('GPU03', 'RTX 4070', 'Rời', 'Cao cấp, hỗ trợ Ray Tracing'),
+('GPU04', 'RTX 4080', 'Rời', 'Đồ họa cực mạnh'),
+('GPU05', 'GTX 1650', 'Rời', 'Phổ thông, chơi game nhẹ'),
+('GPU06', 'Iris Xe', 'Tích hợp', 'Phù hợp học tập, văn phòng'),
+('GPU07', 'Apple GPU 7 nhân', 'Tích hợp', 'Chip M1'),
+('GPU08', 'Apple GPU 10 nhân', 'Tích hợp', 'Chip M2'),
+('GPU09', 'Apple GPU 40 nhân', 'Tích hợp', 'Chip M3 Max');
+
+INSERT INTO ManHinh (MaMH, KichThuoc, DoPhanGiai, TanSo, CongNghe) VALUES
+('MH01', '13.3 inch', 'Retina', '60Hz', 'IPS'),
+('MH02', '14 inch', 'FHD', '60Hz', 'IPS'),
+('MH03', '15.6 inch', 'FHD', '144Hz', 'IPS'),
+('MH04', '15.6 inch', 'QHD', '165Hz', 'IPS'),
+('MH05', '16 inch', 'QHD+', '240Hz', 'IPS'),
+('MH06', '16 inch', 'Liquid Retina XDR', '120Hz', 'Mini LED'),
+('MH07', '14 inch', 'OLED 2.8K', '60Hz', 'OLED'),
+('MH08', '13.6 inch', 'Retina', '60Hz', 'IPS'),
+('MH09', '15.6 inch', 'FHD 165Hz', '165Hz', 'IPS');
+
+INSERT INTO HeDieuHanh (MaHDH, TenHDH, PhienBan) VALUES
+('HDH01', 'Windows 11', 'Home'),
+('HDH02', 'Windows 11', 'Pro'),
+('HDH03', 'macOS Sonoma', '14'),
+('HDH04', 'macOS Sequoia', '15');
+
+INSERT INTO MauSac (MaMau, TenMau, MaHex) VALUES
+('M01', 'Đen', '#000000'),
+('M02', 'Xám', '#808080'),
+('M03', 'Bạc', '#C0C0C0'),
+('M04', 'Trắng', '#FFFFFF'),
+('M05', 'Xanh', '#0047AB'),
+('M06', 'Vàng', '#FFD700');
+
+INSERT INTO SanPham (MaSP, TenSP, Loai, ThuongHieu, MoTa, GiaBan, SoLuong) VALUES
+('AC01', 'Acer Nitro 5', 'Laptop', 'ACER', 'Laptop gaming phổ thông', 22990000, 12),
+('AC02', 'Acer Aspire 7', 'Laptop', 'ACER', 'Học tập và chơi game nhẹ', 17990000, 13),
+('AC03', 'Acer Swift 3', 'Laptop', 'ACER', 'Mỏng nhẹ, pin trâu', 19990000, 15),
+('AC04', 'Acer Predator Helios 16', 'Laptop', 'ACER', 'Gaming cao cấp', 38990000, 8),
+('AC05', 'Acer Spin 5', 'Laptop', 'ACER', 'Cảm ứng xoay gập', 28990000, 6),
+('AP01', 'MacBook Air M1', 'Laptop', 'APPLE', 'Hiệu năng cao, pin lâu', 24990000, 8),
+('AP02', 'MacBook Pro M2', 'Laptop', 'APPLE', 'Hiệu năng cao', 36990000, 6),
+('AP03', 'MacBook Air M2', 'Laptop', 'APPLE', 'Thiết kế mỏng nhẹ', 29990000, 15),
+('AP04', 'MacBook Pro 16 M3', 'Laptop', 'APPLE', 'Cấu hình cực mạnh', 48990000, 3),
+('AP05', 'MacBook Pro 16 M3 Max', 'Laptop', 'APPLE', 'Cao cấp nhất', 64990000, 2),
+('AS01', 'ASUS TUF Gaming A15', 'Laptop', 'ASUS', 'Laptop gaming hiệu năng cao', 23990000, 10),
+('AS02', 'ASUS ROG Zephyrus G14', 'Laptop', 'ASUS', 'Mỏng gọn, mạnh mẽ', 32990000, 5),
+('AS03', 'ASUS Vivobook 15', 'Laptop', 'ASUS', 'Phù hợp sinh viên, văn phòng', 15990000, 15),
+('AS04', 'ASUS Zenbook OLED', 'Laptop', 'ASUS', 'Mỏng nhẹ, sang trọng', 26990000, 9),
+('AS05', 'ASUS ExpertBook B5', 'Laptop', 'ASUS', 'Doanh nhân cao cấp', 28990000, 7),
+('DL01', 'Dell Inspiron 15', 'Laptop', 'DELL', 'Phổ thông', 18990000, 14),
+('DL02', 'Dell XPS 13', 'Laptop', 'DELL', 'Thiết kế thời thượng, cao cấp', 37990000, 6),
+('DL03', 'Dell G15 Gaming', 'Laptop', 'DELL', 'Gaming mạnh mẽ', 28990000, 11),
+('DL04', 'Dell Vostro 14', 'Laptop', 'DELL', 'Văn phòng, doanh nghiệp nhỏ', 17990000, 9),
+('DL05', 'Dell Latitude 7430', 'Laptop', 'DELL', 'Doanh nhân', 31990000, 4),
+('HP01', 'HP Pavilion 14', 'Laptop', 'HP', 'Phù hợp sinh viên', 17990000, 14),
+('HP02', 'HP Omen 16', 'Laptop', 'HP', 'Gaming mạnh mẽ', 37990000, 5),
+('HP03', 'HP Victus 15', 'Laptop', 'HP', 'Laptop gaming giá tốt', 22990000, 10),
+('HP04', 'HP Envy 13', 'Laptop', 'HP', 'Thiết kế thời trang', 26990000, 8),
+('HP05', 'HP Envy 14', 'Laptop', 'HP', 'Thiết kế thời trang', 28990000, 6),
+('LN01', 'Lenovo IdeaPad 3', 'Laptop', 'LENOVO', 'Giá rẻ, phổ thông', 13990000, 15),
+('LN02', 'Lenovo Legion 5', 'Laptop', 'LENOVO', 'Mạnh mẽ, mát mẻ', 28990000, 8),
+('LN03', 'Lenovo Yoga 7i', 'Laptop', 'LENOVO', 'Xoay gập linh hoạt', 27990000, 5),
+('LN04', 'Lenovo ThinkPad E14', 'Laptop', 'LENOVO', 'Doanh nhân bền bỉ', 26990000, 9),
+('MS01', 'MSI GF63', 'Laptop', 'MSI', 'Gaming mỏng nhẹ', 19990000, 12),
+('MS02', 'MSI Katana 15', 'Laptop', 'MSI', 'Cảm hứng game thủ', 36990000, 7),
+('MS03', 'MSI Stealth 16', 'Laptop', 'MSI', 'Gaming cao cấp', 45990000, 4),
+('MS04', 'MSI Creator Z16', 'Laptop', 'MSI', 'Dành cho sáng tạo', 51990000, 3),
+('MS05', 'MSI Modern 14', 'Laptop', 'MSI', 'Văn phòng, học tập', 15990000, 10);
+
+INSERT INTO MoTa (MaSP, CPU, RAM, ROM, GPU, ManHinh, HeDieuHanh, MauSac, ChiTiet) VALUES
+--ACER
+('AC01', 'CPU01', 'RAM02', 'ROM02', 'GPU01', 'MH03', 'HDH01', 'M01', 'Gaming phổ thông, tản nhiệt tốt'),
+('AC02', 'CPU02', 'RAM02', 'ROM02', 'GPU05', 'MH03', 'HDH01', 'M02', 'Hiệu năng ổn, phù hợp sinh viên'),
+('AC03', 'CPU03', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M03', 'Nhẹ, pin lâu'),
+('AC04', 'CPU04', 'RAM03', 'ROM03', 'GPU04', 'MH05', 'HDH01', 'M01', 'Gaming cao cấp, đồ họa mạnh'),
+('AC05', 'CPU05', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M03', 'Xoay gập 360 độ, cảm ứng'),
+--MAC
+('AP01', 'CPU06', 'RAM01', 'ROM01', 'GPU07', 'MH01', 'HDH03', 'M03', 'Ổn định, tiết kiệm pin'),
+('AP02', 'CPU07', 'RAM02', 'ROM02', 'GPU08', 'MH08', 'HDH03', 'M02', 'Hiệu năng cao, sang trọng'),
+('AP03', 'CPU07', 'RAM02', 'ROM02', 'GPU08', 'MH08', 'HDH03', 'M06', 'Thiết kế mỏng nhẹ'),
+('AP04', 'CPU08', 'RAM02', 'ROM03', 'GPU08', 'MH06', 'HDH04', 'M02', 'Cấu hình mạnh mẽ'),
+('AP05', 'CPU09', 'RAM03', 'ROM03', 'GPU09', 'MH06', 'HDH04', 'M03', 'Hiệu năng đỉnh nhất cho sáng tạo');
+
+-- ASUS
+INSERT INTO MoTa (MaSP, CPU, RAM, ROM, GPU, ManHinh, HeDieuHanh, MauSac, ChiTiet) VALUES
+('AS01', 'CPU10', 'RAM02', 'ROM02', 'GPU02', 'MH09', 'HDH01', 'M01', 'Gaming hiệu năng cao, thiết kế bền'),
+('AS02', 'CPU11', 'RAM03', 'ROM03', 'GPU03', 'MH04', 'HDH02', 'M02', 'Siêu mỏng, mạnh mẽ, phù hợp designer'),
+('AS03', 'CPU12', 'RAM01', 'ROM01', 'GPU06', 'MH02', 'HDH01', 'M03', 'Học tập, văn phòng mượt mà'),
+('AS04', 'CPU13', 'RAM02', 'ROM02', 'GPU06', 'MH07', 'HDH02', 'M04', 'Màn hình OLED, hiển thị xuất sắc'),
+('AS05', 'CPU14', 'RAM03', 'ROM02', 'GPU02', 'MH04', 'HDH02', 'M05', 'Doanh nhân cao cấp, pin trâu'),
+
+-- DELL
+('DL01', 'CPU02', 'RAM01', 'ROM01', 'GPU06', 'MH02', 'HDH01', 'M03', 'Phù hợp sinh viên, giá tốt'),
+('DL02', 'CPU14', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH02', 'M02', 'Siêu mỏng, cao cấp, hiệu năng ổn định'),
+('DL03', 'CPU15', 'RAM03', 'ROM03', 'GPU03', 'MH05', 'HDH02', 'M01', 'Gaming mạnh, tản nhiệt tối ưu'),
+('DL04', 'CPU03', 'RAM01', 'ROM01', 'GPU06', 'MH02', 'HDH01', 'M04', 'Laptop doanh nghiệp nhỏ gọn'),
+('DL05', 'CPU13', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH02', 'M02', 'Thiết kế doanh nhân, bền bỉ'),
+
+-- HP
+('HP01', 'CPU03', 'RAM01', 'ROM01', 'GPU06', 'MH02', 'HDH01', 'M03', 'Văn phòng, học tập mượt mà'),
+('HP02', 'CPU15', 'RAM03', 'ROM03', 'GPU03', 'MH05', 'HDH02', 'M01', 'Gaming cao cấp, tản nhiệt tốt'),
+('HP03', 'CPU01', 'RAM02', 'ROM02', 'GPU01', 'MH03', 'HDH01', 'M02', 'Giá tốt, gaming ổn định'),
+('HP04', 'CPU05', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M04', 'Thiết kế mỏng nhẹ, cao cấp'),
+('HP05', 'CPU13', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH02', 'M05', 'Thiết kế sang, pin khỏe'),
+
+-- LENOVO
+('LN01', 'CPU02', 'RAM01', 'ROM01', 'GPU06', 'MH02', 'HDH01', 'M03', 'Giá rẻ, phù hợp sinh viên'),
+('LN02', 'CPU10', 'RAM02', 'ROM02', 'GPU02', 'MH03', 'HDH01', 'M01', 'Gaming mát, bền bỉ'),
+('LN03', 'CPU05', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M03', 'Xoay gập linh hoạt, cảm ứng'),
+('LN04', 'CPU13', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH02', 'M02', 'Laptop doanh nhân, độ bền cao'),
+
+-- MSI
+('MS01', 'CPU01', 'RAM02', 'ROM02', 'GPU01', 'MH03', 'HDH01', 'M01', 'Gaming mỏng nhẹ, tản nhiệt ổn'),
+('MS02', 'CPU14', 'RAM03', 'ROM03', 'GPU02', 'MH05', 'HDH02', 'M02', 'Gaming mạnh mẽ, thiết kế ngầu'),
+('MS03', 'CPU15', 'RAM03', 'ROM03', 'GPU03', 'MH05', 'HDH02', 'M03', 'Gaming cao cấp, sáng tạo nội dung'),
+('MS04', 'CPU15', 'RAM03', 'ROM03', 'GPU04', 'MH05', 'HDH02', 'M04', 'Máy sáng tạo chuyên nghiệp'),
+('MS05', 'CPU13', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M02', 'Văn phòng, học tập ổn định');
