@@ -235,3 +235,46 @@ INSERT INTO MoTa VALUES
 ('AP03','Apple M2','8GB','512GB SSD','GPU 8 nhân','13.6 inch Retina','macOS Sonoma','Vàng','Thiết kế mỏng nhẹ'),
 ('AP04','Apple M3','16GB','1TB SSD','GPU 10 nhân','14 inch Liquid Retina','macOS Sequoia','Xám','Mạnh mẽ, chuyên nghiệp'),
 ('AP05','Apple M3 Max','32GB','1TB SSD','GPU 40 nhân','16 inch Liquid Retina XDR','macOS Sequoia','Bạc','Đỉnh cao hiệu năng');
+
+
+CREATE TABLE CPU (
+    MaCPU VARCHAR(20) PRIMARY KEY,
+    TenCPU VARCHAR(100) NOT NULL,
+    MoTa TEXT
+);
+CREATE TABLE RAM (
+    MaRAM VARCHAR(20) PRIMARY KEY,
+    DungLuong VARCHAR(50) NOT NULL,
+    LoaiRAM VARCHAR(50),
+    TocDo VARCHAR(50)
+);
+CREATE TABLE ROM (
+    MaROM VARCHAR(20) PRIMARY KEY,
+    DungLuong VARCHAR(50) NOT NULL,
+    LoaiROM VARCHAR(50),
+    MoTa TEXT
+);
+CREATE TABLE GPU (
+    MaGPU VARCHAR(20) PRIMARY KEY,
+    TenGPU VARCHAR(100) NOT NULL,
+    LoaiGPU VARCHAR(50),
+    MoTa TEXT
+);
+CREATE TABLE ManHinh (
+    MaMH VARCHAR(20) PRIMARY KEY,
+    KichThuoc VARCHAR(50),
+    DoPhanGiai VARCHAR(50),
+    TanSo VARCHAR(50),
+    CongNghe VARCHAR(100)
+);
+CREATE TABLE HeDieuHanh (
+    MaHDH VARCHAR(20) PRIMARY KEY,
+    TenHDH VARCHAR(100) NOT NULL,
+    PhienBan VARCHAR(50)
+);
+CREATE TABLE MauSac (
+    MaMau VARCHAR(20) PRIMARY KEY,
+    TenMau VARCHAR(50) NOT NULL,
+    MaHex VARCHAR(10)
+);
+
