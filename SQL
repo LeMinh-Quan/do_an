@@ -286,13 +286,13 @@ INSERT INTO SanPham (MaSP, TenSP, Loai, ThuongHieu, MoTa, GiaBan, SoLuong) VALUE
 ('MS05', 'MSI Modern 14', 'Laptop', 'MSI', 'Văn phòng, học tập', 15990000, 10);
 
 INSERT INTO MoTa (MaSP, CPU, RAM, ROM, GPU, ManHinh, HeDieuHanh, MauSac, ChiTiet) VALUES
---ACER
+-- ACER
 ('AC01', 'CPU01', 'RAM02', 'ROM02', 'GPU01', 'MH03', 'HDH01', 'M01', 'Gaming phổ thông, tản nhiệt tốt'),
 ('AC02', 'CPU02', 'RAM02', 'ROM02', 'GPU05', 'MH03', 'HDH01', 'M02', 'Hiệu năng ổn, phù hợp sinh viên'),
 ('AC03', 'CPU03', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M03', 'Nhẹ, pin lâu'),
 ('AC04', 'CPU04', 'RAM03', 'ROM03', 'GPU04', 'MH05', 'HDH01', 'M01', 'Gaming cao cấp, đồ họa mạnh'),
 ('AC05', 'CPU05', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M03', 'Xoay gập 360 độ, cảm ứng'),
---MAC
+-- MAC
 ('AP01', 'CPU06', 'RAM01', 'ROM01', 'GPU07', 'MH01', 'HDH03', 'M03', 'Ổn định, tiết kiệm pin'),
 ('AP02', 'CPU07', 'RAM02', 'ROM02', 'GPU08', 'MH08', 'HDH03', 'M02', 'Hiệu năng cao, sang trọng'),
 ('AP03', 'CPU07', 'RAM02', 'ROM02', 'GPU08', 'MH08', 'HDH03', 'M06', 'Thiết kế mỏng nhẹ'),
