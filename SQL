@@ -193,7 +193,7 @@ VALUES
 
 INSERT INTO MoTa (MaSP, CPU, RAM, ROM, GPU, ManHinh, HeDieuHanh, MauSac, ChiTiet)
 VALUES
-('AC01', 'CPU01', 'RAM01', 'ROM01', 'GPU01', 'MH01', 'HDH01', 'MAU01', 'Hiệu năng ổn đCPU
+('AC01', 'CPU01', 'RAM01', 'ROM01', 'GPU01', 'MH01', 'HDH01', 'MAU01', 'Hiệu năng ổn định, phù hợp cho game và học tập.');
 INSERT INTO CPU (MaCPU, TenCPU, MoTa)
 VALUES
 ('CPU01', 'Core i5-12500H', 'Hiệu năng tầm trung cho gaming'),
