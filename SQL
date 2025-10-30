@@ -7,9 +7,20 @@ create table users(
     email varchar(255),
     pass varchar(10),
     SDT char(10),
-    DiaChi varchar(255),
     VaiTro enum('admin','user') default 'user'
 );
+CREATE TABLE DiaChi ( 
+MaKH VARCHAR(20) primary key, 
+DiaChiGiaoHang ENUM('Nha', 'CongTy', 'Khac') DEFAULT 'Nha',
+ChiTietDiaChi VARCHAR(255) NOT NULL,
+ThanhPho VARCHAR(100),
+QuanHuyen VARCHAR(100), 
+PhuongXa VARCHAR(100), 
+GhiChu VARCHAR(255)
+);
+
+alter table DiaChi
+add constraint fk_dc FOREIGN KEY (MaKH) REFERENCES users(maKH);
 /*gio hang*/
 create table Cart(
     MaCart char(20) primary key,
