@@ -327,7 +327,7 @@ INSERT INTO MoTa (MaSP, CPU, RAM, ROM, GPU, ManHinh, HeDieuHanh, MauSac, ChiTiet
 ('LN02', 'CPU10', 'RAM02', 'ROM02', 'GPU02', 'MH03', 'HDH01', 'M01', 'Gaming mát, bền bỉ'),
 ('LN03', 'CPU05', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH01', 'M03', 'Xoay gập linh hoạt, cảm ứng'),
 ('LN04', 'CPU13', 'RAM02', 'ROM02', 'GPU06', 'MH02', 'HDH02', 'M02', 'Laptop doanh nhân, độ bền cao'),
-('LN05', 'CPU05', 'RAM03', 'ROM03', 'GPU04', 'MH03', 'HDH01', 'M03','Lenovo LOQ 15IRH8 i5-13420H, 16GB RAM, 512GB SSD, RTX 4050, 15.6" 144Hz, Win 11, xám.');
+('LN05', 'CPU05', 'RAM03', 'ROM03', 'GPU04', 'MH03', 'HDH01', 'M03','Lenovo LOQ 15IRH8 i5-13420H, 16GB RAM, 512GB SSD, RTX 4050, 15.6" 144Hz, Win 11, xám.'),
 -- MSI
 ('MS01', 'CPU01', 'RAM02', 'ROM02', 'GPU01', 'MH03', 'HDH01', 'M01', 'Gaming mỏng nhẹ, tản nhiệt ổn'),
 ('MS02', 'CPU14', 'RAM03', 'ROM03', 'GPU02', 'MH05', 'HDH02', 'M02', 'Gaming mạnh mẽ, thiết kế ngầu'),
